@@ -56,7 +56,7 @@ table{
   }
   
   table th,table td{
-    text-align: center;
-    width: 25%;
+    /*text-align: center;*/
+    /*width: 25%;*/
     padding: 15px 0;
   }
