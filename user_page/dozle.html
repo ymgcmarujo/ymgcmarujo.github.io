@@ -19,8 +19,8 @@
         <input type="text" id="search_date"> <input type="button" value="絞り込む" id="search_button"> <input type="button" value="すべて表示" id="search_button2"></br>
         ユーザ：</br>
         <label><input type="checkbox" name="checkItem" value="@dozle_sub" checked />@dozle_sub</label>
-<label><input type="checkbox" name="checkItem" value="@ooharaMEN" checked />@ooharaMEN</label>
 <label><input type="checkbox" name="checkItem" value="@QnlyQ" checked />@QnlyQ</label>
+<label><input type="checkbox" name="checkItem" value="@ooharaMEN" checked />@ooharaMEN</label>
 <label><input type="checkbox" name="checkItem" value="@bonj55" checked />@bonj55</label>
 <label><input type="checkbox" name="checkItem" value="@dozle" checked />@dozle</label>
 <label><input type="checkbox" name="checkItem" value="@ORAFKUN" checked />@ORAFKUN</label>
@@ -38,12 +38,22 @@
     <script>
     $(function(){
         $('#search_button').bind("click",function(){
+            const selectedValuesList = [];
+            var selectedUser = '';
+
+            const checkboxes = document.querySelectorAll('input[name="checkItem"]:checked');
+            for (let i = 0; i < checkboxes.length; i++) {
+                selectedValues.push(checkboxes[i].value);
+            }
+            selectedUser = selectedValuesList.join("|");
+
             var reTitle = new RegExp($('#search').val());
             var reDate = new RegExp($('#search_date').val());
             $('#result tbody tr').each(function(){
                 var txtTitle = $(this).find("td:eq(3)").html();
                 var txtDate = $(this).find("td:eq(0)").html();
-                if(($('#search').val() == '' || txtTitle.match(reTitle) != null) && ($('#search_date').val() == '' || txtDate.match(reDate) != null)){
+                var txtUser = $(this).find("td:eq(1)").html();
+                if(($('#search').val() == '' || txtTitle.match(reTitle) != null) && ($('#search_date').val() == '' || txtDate.match(reDate) != null) && (selectedValues != '' || txtUser.match(selectedUser) != null)){
                     $(this).show();
                 }else{
                     $(this).hide();
