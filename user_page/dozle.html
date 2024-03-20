@@ -55,7 +55,7 @@
                 var txtTitle = $(this).find("td:eq(3)").html();
                 var txtDate = $(this).find("td:eq(0)").html();
                 var txtUser = $(this).find("td:eq(1)").html();
-                if(($('#search').val() == '' || txtTitle.match(reTitle) != null) && ($('#search_date').val() == '' || txtDate.match(reDate) != null) && (selectedUser != '()' || txtUser.match(selectedUser) != null)){
+                if(($('#search').val() == '' || txtTitle.match(reTitle) != null) && ($('#search_date').val() == '' || txtDate.match(reDate) != null) && (selectedUser == '()' || txtUser.match(selectedUser) != null)){
                     $(this).show();
                 }else{
                     $(this).hide();
