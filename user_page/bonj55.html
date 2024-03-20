@@ -12,11 +12,11 @@
     @bonj55</br>
 <a href="../index.html">homeへ戻る</a></br>
         フィルタ条件（複合And検索も可）</br>
-        動画タイトル：
+        動画タイトル：</br>
         <form name="searchForm">
         <input type="text" id="search"></br>
-        公開日：
-        <input type="text" id="search_date"> <input type="button" value="絞り込む" id="search_button"> <input type="button" value="すべて表示" id="search_button2"></br>
+        公開日（yyyymmdd）：</br>
+        <input type="text" id="search_date"> </br>
         ユーザ：</br>
         <label><input type="checkbox" name="checkItem" value="@QnlyQ" checked />@QnlyQ</label>
 <label><input type="checkbox" name="checkItem" value="@dozle_sub" checked />@dozle_sub</label>
@@ -24,7 +24,8 @@
 <label><input type="checkbox" name="checkItem" value="@bonj55" checked />@bonj55</label>
 <label><input type="checkbox" name="checkItem" value="@dozle" checked />@dozle</label>
 <label><input type="checkbox" name="checkItem" value="@ORAFKUN" checked />@ORAFKUN</label>
-
+</br>
+        <input type="button" value="絞り込む" id="search_button"> <input type="button" value="すべて表示" id="search_button2">
         </form>
         <span id="selectedUser"></span>
         <table id="result" border=1>
@@ -41,7 +42,7 @@
             const selectedValuesList = [];
             var selectedUser = '';
 
-            const checkboxes = document.querySelectorAll('input[name="checkItem"]:checked');
+            var checkboxes = document.querySelectorAll('input[name="checkItem"]:checked');
             for (let i = 0; i < checkboxes.length; i++) {
                 selectedValuesList.push(checkboxes[i].value);
             }
@@ -64,6 +65,10 @@
         $('#search_button2').bind("click",function(){
             $('#search').val('');
             $('#search_date').val('');
+            var checkboxes = document.querySelectorAll('input[name="checkItem"]:checked');
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
             $('#result tr').show();
         });
         $('#date_button').bind("click",function(){
