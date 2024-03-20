@@ -9,18 +9,19 @@
     <body>
     <title>切抜き候補一覧（バッチ処理日順）</title>
 
-    @dozle_sub
+    @dozle_sub</br>
 <a href="../index.html">homeへ戻る</a></br>
-        動画タイトルフィルタ：
-        <input type="text" id="search"> <input type="button" value="絞り込む" id="search_button"> <input type="button" value="すべて表示" id="search_button2"></br>
-        公開日フィルタ：
-        <input type="text" id="search_date"> <input type="button" value="絞り込む" id="date_button"> <input type="button" value="すべて表示" id="date_button2"></br>
+        フィルタ条件（複合And検索も可）</br>
+        動画タイトル：
+        <input type="text" id="search"></br>
+        公開日：
+        <input type="text" id="search_date"> <input type="button" value="絞り込む" id="search_button"> <input type="button" value="すべて表示" id="search_button2"></br>
         <table id="result" border=1>
 	    <thead>
-        <tr><th>出力日</th><th>公開日</th><th>ユーザ</th><th>動画ID</th><th>分析ページ</th></tr>
+        <tr><th>公開日</th><th>ユーザ</th><th>動画ID</th><th>分析ページ</th></tr>
         </thead>
         <tbody>
-        <tr><td>2024-03-19 00:40:03</td><td>20230618</td><td>@dozle_sub</td><td><a href="https://www.youtube.com/watch?v=f3PppuuN1fo">f3PppuuN1fo</td><td><img src="http://img.youtube.com/vi/f3PppuuN1fo/default.jpg"></br><a href="../detail/20230618/@dozle_sub/f3PppuuN1fo/f3PppuuN1fo.html">【フォートナイト】ドズル社の若手4人でビクロイを狙います！【Fortnite】</a></td></tr>
+        <td>20230618</td><td>@dozle_sub</td><td><a href="https://www.youtube.com/watch?v=f3PppuuN1fo">f3PppuuN1fo</td><td><img src="http://img.youtube.com/vi/f3PppuuN1fo/default.jpg"></br><a href="../detail/20230618/@dozle_sub/f3PppuuN1fo/f3PppuuN1fo.html">【フォートナイト】ドズル社の若手4人でビクロイを狙います！【Fortnite】</a></td></tr>
 </tbody></table>
 
     <script>
@@ -29,8 +30,8 @@
             var reTitle = new RegExp($('#search').val());
             var reDate = new RegExp($('#search_date').val());
             $('#result tbody tr').each(function(){
-                var txtTitle = $(this).find("td:eq(4)").html();
-                var txtDate = $(this).find("td:eq(1)").html();
+                var txtTitle = $(this).find("td:eq(3)").html();
+                var txtDate = $(this).find("td:eq(0)").html();
                 if(($('#search').val() == '' || txtTitle.match(reTitle) != null) && ($('#search_date').val() == '' || txtDate.match(reDate) != null)){
                     $(this).show();
                 }else{
