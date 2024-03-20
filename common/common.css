@@ -84,7 +84,7 @@ table{
   .button-1 {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     width: 250px;
     margin:0 auto;
     padding: .9em 2em;
