@@ -18,14 +18,15 @@
         公開日：
         <input type="text" id="search_date"> <input type="button" value="絞り込む" id="search_button"> <input type="button" value="すべて表示" id="search_button2"></br>
         ユーザ：</br>
-        <label><input type="checkbox" name="checkItem" value="@dozle_sub" checked />@dozle_sub</label>
-<label><input type="checkbox" name="checkItem" value="@QnlyQ" checked />@QnlyQ</label>
+        <label><input type="checkbox" name="checkItem" value="@QnlyQ" checked />@QnlyQ</label>
+<label><input type="checkbox" name="checkItem" value="@dozle_sub" checked />@dozle_sub</label>
 <label><input type="checkbox" name="checkItem" value="@ooharaMEN" checked />@ooharaMEN</label>
 <label><input type="checkbox" name="checkItem" value="@bonj55" checked />@bonj55</label>
 <label><input type="checkbox" name="checkItem" value="@dozle" checked />@dozle</label>
 <label><input type="checkbox" name="checkItem" value="@ORAFKUN" checked />@ORAFKUN</label>
 
         </form>
+        <span id="selectedUser"></span>
         <table id="result" border=1>
 	    <thead>
         <tr><th>公開日</th><th>ユーザ</th><th>動画ID</th><th>分析ページ</th></tr>
@@ -46,6 +47,7 @@
                 selectedValuesList.push(checkboxes[i].value);
             }
             selectedUser = selectedValuesList.join("|");
+            document.getElementById("selectedUser").textContent = selectedUser;
 
             var reTitle = new RegExp($('#search').val());
             var reDate = new RegExp($('#search_date').val());
