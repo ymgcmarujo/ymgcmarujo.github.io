@@ -24,8 +24,8 @@
 <label><input type="checkbox" name="checkItem" value="@ooharaMEN" checked />@ooharaMEN</label>
 <label><input type="checkbox" name="checkItem" value="@bonj55" checked />@bonj55</label>
 <label><input type="checkbox" name="checkItem" value="@dozle" checked />@dozle</label>
-</br>
-        <input type="button" class="btn btn--orange" value="絞り込む" id="search_button"> <input type="button" class="btn btn--orange" value="すべて表示" id="search_button2">
+<input type="button" value="全てチェックON" id="all_check_on_button"><input type="button" value="全てチェックOFF" id="all_check_off_button"></br>
+        <input type="button" value="絞り込む" id="search_button"> <input type="button" value="すべて表示" id="search_button2">
         </form>
         <table id="result" border=1 class="design01">
 	    <thead>
@@ -307,6 +307,20 @@
 
     <script>
     $(function(){
+    
+        $('#all_check_on_button').bind("click",function(){
+            var checkboxes = document.querySelectorAll('input[name="checkItem"]');
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = true;
+            }
+        });
+        $('#all_check_off_button').bind("click",function(){
+            var checkboxes = document.querySelectorAll('input[name="checkItem"]');
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+        });
+        
         $('#search_button').bind("click",function(){
             const selectedValuesList = [];
             var selectedUser = '';
