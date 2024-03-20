@@ -46,7 +46,7 @@
             for (let i = 0; i < checkboxes.length; i++) {
                 selectedValuesList.push(checkboxes[i].value);
             }
-            selectedUser = selectedValuesList.join("|");
+            selectedUser = '(' + selectedValuesList.join("|") + ')';
             document.getElementById("selectedUser").textContent = selectedUser;
 
             var reTitle = new RegExp($('#search').val());
