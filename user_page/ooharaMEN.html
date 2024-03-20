@@ -42,7 +42,7 @@
 
             const checkboxes = document.querySelectorAll('input[name="checkItem"]:checked');
             for (let i = 0; i < checkboxes.length; i++) {
-                selectedValues.push(checkboxes[i].value);
+                selectedValuesList.push(checkboxes[i].value);
             }
             selectedUser = selectedValuesList.join("|");
 
