@@ -13,9 +13,19 @@
 <a href="../index.html">homeへ戻る</a></br>
         フィルタ条件（複合And検索も可）</br>
         動画タイトル：
+        <form name="searchForm">
         <input type="text" id="search"></br>
         公開日：
         <input type="text" id="search_date"> <input type="button" value="絞り込む" id="search_button"> <input type="button" value="すべて表示" id="search_button2"></br>
+        ユーザ：</br>
+        <label><input type="checkbox" name="checkItem" value="@dozle_sub" checked />お肉</label>
+<label><input type="checkbox" name="checkItem" value="@ooharaMEN" checked />お肉</label>
+<label><input type="checkbox" name="checkItem" value="@QnlyQ" checked />お肉</label>
+<label><input type="checkbox" name="checkItem" value="@bonj55" checked />お肉</label>
+<label><input type="checkbox" name="checkItem" value="@dozle" checked />お肉</label>
+<label><input type="checkbox" name="checkItem" value="@ORAFKUN" checked />お肉</label>
+
+        </form>
         <table id="result" border=1>
 	    <thead>
         <tr><th>公開日</th><th>ユーザ</th><th>動画ID</th><th>分析ページ</th></tr>
