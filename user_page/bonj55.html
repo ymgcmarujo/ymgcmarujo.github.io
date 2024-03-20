@@ -26,10 +26,12 @@
     <script>
     $(function(){
         $('#search_button').bind("click",function(){
-            var re = new RegExp($('#search').val());
+            var reTitle = new RegExp($('#search').val());
+            var reDate = new RegExp($('#search_date').val());
             $('#result tbody tr').each(function(){
-                var txt = $(this).find("td:eq(4)").html();
-                if(txt.match(re) != null){
+                var txtTitle = $(this).find("td:eq(4)").html();
+                var txtDate = $(this).find("td:eq(1)").html();
+                if(txtTitle.match(reTitle) != null || txtDate.match(reDate) != null){
                     $(this).show();
                 }else{
                     $(this).hide();
@@ -38,13 +40,14 @@
         });
         $('#search_button2').bind("click",function(){
             $('#search').val('');
+            $('#search_date').val('');
             $('#result tr').show();
         });
         $('#date_button').bind("click",function(){
-            var re = new RegExp($('#search_date').val());
+            var reDate = new RegExp($('#search_date').val());
             $('#result tbody tr').each(function(){
-                var txt = $(this).find("td:eq(1)").html();
-                if(txt.match(re) != null){
+                var txtDate = $(this).find("td:eq(1)").html();
+                if(txtDate.match(reDate) != null){
                     $(this).show();
                 }else{
                     $(this).hide();
