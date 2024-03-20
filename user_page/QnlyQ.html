@@ -14,14 +14,14 @@
         フィルタ条件（複合And検索も可）</br>
         動画タイトル：</br>
         <form name="searchForm" class="search_container">
-        <input type="text" id="search" placeholder="　例：アツクラ"></br>
+        <input type="text" id="search" placeholder="　例：アツクラ" name="searchWord"></br>
         公開日（yyyymmdd）：</br>
         <input type="text" id="search_date"> </br>
         ユーザ：</br>
         <label><input type="checkbox" name="checkItem" value="@QnlyQ" checked />@QnlyQ</label>
+<label><input type="checkbox" name="checkItem" value="@ORAFKUN" checked />@ORAFKUN</label>
 <label><input type="checkbox" name="checkItem" value="@dozle_sub" checked />@dozle_sub</label>
 <label><input type="checkbox" name="checkItem" value="@ooharaMEN" checked />@ooharaMEN</label>
-<label><input type="checkbox" name="checkItem" value="@ORAFKUN" checked />@ORAFKUN</label>
 <label><input type="checkbox" name="checkItem" value="@bonj55" checked />@bonj55</label>
 <label><input type="checkbox" name="checkItem" value="@dozle" checked />@dozle</label>
 </br>
@@ -355,6 +355,13 @@
             $('#search_date').val('');
             $('#result tr').show();
         });
+
+        const inputSearchWord = document.forms.searchForm.searchWord; //document.formsでformの中身を取得,さらに後ろの記述で細かく指定できる
+        
+        inputSearchWord.addEventListener('input',()=>{     //inputSearchWordにinputがされたら
+        document.getElementById('search_button').click();//input_value_boxのidを検索して
+        })
+
     });
     </script>
     </body>
