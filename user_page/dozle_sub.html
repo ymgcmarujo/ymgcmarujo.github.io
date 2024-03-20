@@ -31,7 +31,7 @@
             $('#result tbody tr').each(function(){
                 var txtTitle = $(this).find("td:eq(4)").html();
                 var txtDate = $(this).find("td:eq(1)").html();
-                if((reTitle != null && txtTitle.match(reTitle) != null) || (reDate != null && txtDate.match(reDate) != null)){
+                if(($('#search').val() != '' && txtTitle.match(reTitle) != null) || ($('#search_date').val() != '' && txtDate.match(reDate) != null)){
                     $(this).show();
                 }else{
                     $(this).hide();
