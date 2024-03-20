@@ -16,7 +16,7 @@
         <form name="searchForm" class="search_container">
         <input type="text" id="search" placeholder="　例：アツクラ" name="searchWord"></br>
         公開日（yyyymmdd）：</br>
-        <input type="text" id="search_date"> </br>
+        <input type="text" id="search_date" name="searchDate"></br>
         ユーザ：</br>
         <label><input type="checkbox" name="checkItem" value="@QnlyQ" checked />@QnlyQ</label>
 <label><input type="checkbox" name="checkItem" value="@ORAFKUN" checked />@ORAFKUN</label>
@@ -87,10 +87,26 @@
         });
 
         const inputSearchWord = document.forms.searchForm.searchWord; //document.formsでformの中身を取得,さらに後ろの記述で細かく指定できる
+        const inputSearchDate = document.forms.searchForm.searchDate; //document.formsでformの中身を取得,さらに後ろの記述で細かく指定できる
         
+        //検索ワードが入力されたら検索ボタン押したときのイベントを実行
         inputSearchWord.addEventListener('input',()=>{     //inputSearchWordにinputがされたら
-        document.getElementById('search_button').click();//input_value_boxのidを検索して
+        document.getElementById('search_button').click();//検索ボタンのイベントを呼び出し
         })
+        //検索日付が入力されたら検索ボタン押したときのイベントを実行
+        inputSearchDate.addEventListener('input',()=>{     //inputSearchDateにinputがされたら
+        document.getElementById('search_button').click();//検索ボタンのイベントを呼び出し
+        })
+
+        //チェックボックスが変更されたらリアルタイムで反映
+        let targets = document.querySelectorAll('input[name="checkItem"]');
+
+        for (let target of targets) {
+            target.addEventListener('change', function () {
+                    document.getElementById('search_button').click();//検索ボタンのイベントを呼び出し
+                });
+        }
+
 
     });
     </script>
