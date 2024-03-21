@@ -89,14 +89,16 @@
             var reTitleHira = convertStrToHira($('#search').val());
             $('#result tbody tr').each(function(){
                 var txtTitle = $(this).find("td:eq(3)").html();
+                var textTitleKana = convertStrToKana(txtTitle);
+                var textTitleHira = convertStrToHira(txtTitle);
                 var txtDate = $(this).find("td:eq(0)").html();
                 var txtUser = $(this).find("td:eq(1)").html();
                 //検索ワードが空か、空じゃない時はそのまま、カナ変換後、ひらがな変換後のいずれかでヒット
                 //かつ 検索日付が空か、空じゃないけど一致している
                 //かつ アップロードユーザが空か、空じゃないけど一致している
                 if((($('#search').val() == '' || txtTitle.match(reTitle) != null) ||
-                        ($('#search').val() == '' || txtTitle.match(reTitleKana) != null) ||
-                        ($('#search').val() == '' || txtTitle.match(reTitleHira) != null)) &&
+                        ($('#search').val() == '' || textTitleKana.match(reTitleKana) != null) ||
+                        ($('#search').val() == '' || textTitleHira.match(reTitleHira) != null)) &&
                     ($('#search_date').val() == '' || txtDate.match(reDate) != null) &&
                     ($('#search_date_select').val() == '' || txtDate.match(reDateSelect) != null) &&
                     (selectedUser == '()' || txtUser.match(selectedUser) != null))
