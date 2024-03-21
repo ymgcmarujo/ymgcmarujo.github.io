@@ -17,7 +17,8 @@
         <input type="text" id="search" placeholder="　例：アツクラ" name="searchWord"></br>
         公開日（yyyymmdd）：</br>
         <input type="text" id="search_date" name="searchDate"></br>
-        <select id="search_date" name="searchDate">
+        <select id="search_date_select" name="searchDateSelect">
+        <option value="" selected></option>
         <option value="202401">202401</option>
         <option value="202402">202402</option>
         <option value="202403">202403</option>
@@ -341,11 +342,12 @@
 
             var reTitle = new RegExp($('#search').val());
             var reDate = new RegExp($('#search_date').val());
+            var reDateSelect = new RegExp($('#search_date_select').val());
             $('#result tbody tr').each(function(){
                 var txtTitle = $(this).find("td:eq(3)").html();
                 var txtDate = $(this).find("td:eq(0)").html();
                 var txtUser = $(this).find("td:eq(1)").html();
-                if(($('#search').val() == '' || txtTitle.match(reTitle) != null) && ($('#search_date').val() == '' || txtDate.match(reDate) != null) && (selectedUser == '()' || txtUser.match(selectedUser) != null)){
+                if(($('#search').val() == '' || txtTitle.match(reTitle) != null) && ($('#search_date').val() == '' || txtDate.match(reDate) != null) && ($('#search_date_select').val() == '' || txtDate.match(reDateSelect) != null) && (selectedUser == '()' || txtUser.match(selectedUser) != null)){
                     $(this).show();
                 }else{
                     $(this).hide();
@@ -391,11 +393,15 @@
 
         //チェックボックスが変更されたらリアルタイムで反映
         let targets = document.querySelectorAll('input[name="checkItem"]');
-
         for (let target of targets) {
             target.addEventListener('change', function () {
                     document.getElementById('search_button').click();//検索ボタンのイベントを呼び出し
                 });
+        }
+
+        let select = document.querySelector('[name="searchDateSelect"]');
+        select.onchange = event => { 
+        document.getElementById('search_button').click();//検索ボタンのイベントを呼び出し
         }
 
 
