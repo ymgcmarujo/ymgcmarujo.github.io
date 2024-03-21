@@ -310,8 +310,20 @@
 </tbody></table>
 
     <script>
+    //ひらがなからカタカナ変換 
+    function convertStrToKana(str) {
+        return str.replace(/[ぁ-ん]/g, function(s) {
+            return String.fromCharCode(s.charCodeAt(0) + 0x60);
+        });
+    }
+    //カタカナからひらがな変換
+    function convertStrToHira(str) {
+        return str.replace(/[ァ-ン]/g, function(s) {
+            return String.fromCharCode(s.charCodeAt(0) - 0x60);
+        });
+    }
     $(function(){
-    
+        //アップロードユーザのチェックボックスをすべてONにするイベント
         $('#all_check_on_button').bind("click",function(){
             var checkboxes = document.querySelectorAll('input[name="checkItem"]');
             for (let i = 0; i < checkboxes.length; i++) {
@@ -319,6 +331,7 @@
             }
             document.getElementById('search_button').click();//検索ボタンのイベントを呼び出し
         });
+        //アップロードユーザのチェックボックスをすべてOFFにするイベント
         $('#all_check_off_button').bind("click",function(){
             var checkboxes = document.querySelectorAll('input[name="checkItem"]');
             for (let i = 0; i < checkboxes.length; i++) {
@@ -327,6 +340,7 @@
             document.getElementById('search_button').click();//検索ボタンのイベントを呼び出し
         });
         
+        //検索ボタンを押したときのイベント
         $('#search_button').bind("click",function(){
             const selectedValuesList = [];
             var selectedUser = '';
@@ -341,17 +355,29 @@
             var reTitle = new RegExp($('#search').val());
             var reDate = new RegExp($('#search_date').val());
             var reDateSelect = new RegExp($('#search_date_select').val());
+            var reTitleKana = convertStrToKana($('#search').val());
+            var reTitleHira = convertStrToHira($('#search').val());
             $('#result tbody tr').each(function(){
                 var txtTitle = $(this).find("td:eq(3)").html();
                 var txtDate = $(this).find("td:eq(0)").html();
                 var txtUser = $(this).find("td:eq(1)").html();
-                if(($('#search').val() == '' || txtTitle.match(reTitle) != null) && ($('#search_date').val() == '' || txtDate.match(reDate) != null) && ($('#search_date_select').val() == '' || txtDate.match(reDateSelect) != null) && (selectedUser == '()' || txtUser.match(selectedUser) != null)){
+                //検索ワードが空か、空じゃない時はそのまま、カナ変換後、ひらがな変換後のいずれかでヒット
+                //かつ 検索日付が空か、空じゃないけど一致している
+                //かつ アップロードユーザが空か、空じゃないけど一致している
+                if((($('#search').val() == '' || txtTitle.match(reTitle) != null) ||
+                        ($('#search').val() == '' || txtTitle.match(reTitleKana) != null) ||
+                        ($('#search').val() == '' || txtTitle.match(reTitleHira) != null)) &&
+                    ($('#search_date').val() == '' || txtDate.match(reDate) != null) &&
+                    ($('#search_date_select').val() == '' || txtDate.match(reDateSelect) != null) &&
+                    (selectedUser == '()' || txtUser.match(selectedUser) != null))
+                    {
                     $(this).show();
                 }else{
                     $(this).hide();
                 }
             });
         });
+        //クリアボタンを押したときのイベント
         $('#search_button2').bind("click",function(){
             $('#search').val('');
             $('#search_date').val('');
