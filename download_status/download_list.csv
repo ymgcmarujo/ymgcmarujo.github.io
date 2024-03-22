@@ -8327,7 +8327,7 @@ uploaderId,type,id,dl_status
 @bonj55,streams,24482rCJMLc,done
 @bonj55,streams,b2TjRitHgP8,done
 @bonj55,streams,OMtXexDqCpc,done
-@bonj55,streams,dsN7vUMmPbs,skip
+@bonj55,streams,dsN7vUMmPbs,error_skip
 @bonj55,streams,Zx_Sg3-poDY,done
 @bonj55,streams,zSpAxM0THYM,done
 @bonj55,streams,oVwjpx1iaeg,done
@@ -8397,7 +8397,7 @@ uploaderId,type,id,dl_status
 @bonj55,streams,v-q2HpDyeV8,done
 @bonj55,streams,8g2C9DGSd80,done
 @bonj55,streams,QCYr_8XOFBY,done
-@bonj55,streams,jW_5GVO_y8U,no
+@bonj55,streams,jW_5GVO_y8U,error_skip
 @bonj55,streams,5IIuNcmc2Cg,done
 @bonj55,streams,bctcm_yOTg0,done
 @bonj55,streams,sZHH0BAsiNs,done
@@ -8469,7 +8469,7 @@ uploaderId,type,id,dl_status
 @bonj55,streams,KEgoEGVKJh8,done
 @bonj55,streams,Blj9y3NEdnk,done
 @bonj55,streams,cjUl2kCGpHE,done
-@bonj55,streams,sYxsYCS0KuI,no
+@bonj55,streams,sYxsYCS0KuI,done
 @bonj55,streams,iqb3fajLn0k,no
 @bonj55,streams,Nqcc6Sa4gio,no
 @bonj55,streams,X9Que5K6AjA,no
