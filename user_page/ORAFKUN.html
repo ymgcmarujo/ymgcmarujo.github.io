@@ -461,7 +461,7 @@
                         ($('#search').val() == '' || textTitleHira.match(reTitleHira) != null)) &&
                     ($('#search_date').val() == '' || txtDate.match(reDate) != null) &&
                     ($('#search_date_select').val() == '' || txtDate.match(reDateSelect) != null) &&
-                    (selectedUser == '()' || selectedUser.match(txtUser) != null))
+                    (selectedUser == '()' || txtUser.match(selectedUser) != null))
                     {
                     $(this).show();
                 }else{
