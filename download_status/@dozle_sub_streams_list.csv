@@ -1,5 +1,5 @@
 uploaderId,type,id,live_status
-@dozle_sub,streams,Cu8SB_13BQA,is_upcoming
+@dozle_sub,streams,Cu8SB_13BQA,is_live
 @dozle_sub,streams,XI3X2_a8W38,was_live
 @dozle_sub,streams,MwMJJvl8Jx8,was_live
 @dozle_sub,streams,UrYVvNvp998,was_live
@@ -100,7 +100,6 @@ uploaderId,type,id,live_status
 @dozle_sub,streams,iDo0KTp7_y8,was_live
 @dozle_sub,streams,fbvbbsExMbw,was_live
 @dozle_sub,streams,1LM-fL0Wjs8,was_live
-@dozle_sub,streams,pJQInThDTgg,was_live
 @dozle_sub,streams,_Yx7nvs30m4,was_live
 @dozle_sub,streams,xodJ9xcD6cw,was_live
 @dozle_sub,streams,80Se9MgHB2c,was_live
