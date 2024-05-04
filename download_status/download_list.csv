@@ -10540,4 +10540,4 @@ uploaderId,type,id,dl_status
 @ooharaMEN,streams,J1PQ99DYfZQ,done
 @dozle,videos,CyAdjr50Rt0,done
 @dozle_sub,streams,W_lVIRLfuZw,done
-@dozle_sub,streams,ActvPD2ZFLU,no
+@dozle_sub,streams,ActvPD2ZFLU,error_skip
