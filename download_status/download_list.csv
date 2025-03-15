@@ -12024,4 +12024,4 @@ uploaderId,type,id,dl_status
 @ORAFKUN,streams,1N5Kn3e9qGM,done
 @ORAFKUN,streams,JTDa97FXjzU,done
 @ORAFKUN,streams,XIt7QdthI_0,error_skip_over
-@ORAFKUN,streams,bkSF41wKM4M,no
+@ORAFKUN,streams,bkSF41wKM4M,error_skip_over
